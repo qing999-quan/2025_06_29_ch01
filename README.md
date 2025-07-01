@@ -54,6 +54,7 @@
 ```python
 def hello():
     print("Hello, Markdown!")
+    ```
 ---
 
 ### 7. 分隔線
