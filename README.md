@@ -77,3 +77,17 @@ def hello():
 10.核取方塊
  - [ ] uncheck
  - [x] check
+
+#### Docker 安裝
+> **注意**: 目前僅支援本機連線，外部連線設定尚未測試成功
+
+```bash
+docker run --name my-postgres -e POSTGRES_PASSWORD=yourpassword -p 5432:5432 -d postgres
+```
+
+**參數說明**:
+- `--name my-postgres`: 容器名稱
+- `-e POSTGRES_PASSWORD=yourpassword`: 設定 PostgreSQL 使用者 `postgres` 的密碼
+- `-p 5432:5432`: 將容器內的 5432 端口映射到本機 5432 端口
+- `-d postgres`: 背景執行並使用 postgres 映像檔
+- **預設使用者帳號**: postgres
