@@ -1,15 +1,9 @@
 ### 創建公司資料庫
 
 ```sql
-DROP TABLE IF EXISTS employee CASCADE;
-DROP TABLE IF EXISTS  branch CASCADE;
-DROP TABLE IF EXISTS client  CASCADE;
-DROP TABLE IF EXISTS works_with CASCADE;
-```
+DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS  branch;
 
-#### 創立員工表格
-
-```
 CREATE TABLE employee(
 	emp_id SERIAL,
 	name VARCHAR(20),
@@ -20,7 +14,19 @@ CREATE TABLE employee(
 	sup_id INT,
  	PRIMARY KEY(emp_id)
 );
+
+CREATE TABLE branch(
+	branch_id INT,
+	branch_name VARCHAR(20),
+	manager_id INT,
+	PRIMARY KEY(branch_id),
+	FOREIGN KEY(manager_id)
+	REFERENCES employee(emp_id) ON DELETE SET NULL
+);
+
+ALTER TABLE employee ADD FOREIGN KEY(branch_id)
+REFERENCES branch(branch_id) ON DELETE SET NULL;
+
+ALTER TABLE employee ADD FOREIGN KEY(sup_id)
+REFERENCES employee(emp_id) ON DELETE SET NULL;
 ```
-
-> [參考語法foreign key](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-foreign-key*/)
-
