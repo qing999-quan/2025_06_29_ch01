@@ -178,6 +178,6 @@ docker run -it --name my_container_name my-conda-env:v1.0
 ## 方法2
 內建conda和安裝nodejs 和 uv,目的是為了mcp
 
-```
+```docker
 docker run -it --name python-postgres1 roberthsu2003/conda_uv_npx
 ```
