@@ -1,8 +1,8 @@
 ### 創建公司資料庫
 
 ```sql
-DROP TABLE IF EXISTS employee;
-DROP TABLE IF EXISTS  branch;
+DROP TABLE IF EXISTS employee CASCADE;
+DROP TABLE IF EXISTS  branch CASCADE;
 
 CREATE TABLE employee(
 	emp_id SERIAL,
