@@ -44,3 +44,18 @@ SELECT "name" AS 站名,count("name") AS 筆數,AVG("進站人數") AS "進站�
 FROM "每日各站進出站人數" LEFT JOIN "台鐵車站資訊" ON "車站代碼" = "stationCode"
 WHERE "日期" BETWEEN '2022-01-01' AND '2022-12-31'
 GROUP BY "name"
+
+SELECT "name" AS 站名,date_part('year',"日期") AS "年份",count("name") AS 筆數,AVG("進站人數") AS "進站人數"
+FROM "每日各站進出站人數" LEFT JOIN "台鐵車站資訊" ON "車站代碼" = "stationCode"
+GROUP BY "name","年份";
+
+SELECT "name" AS 站名,date_part('year',"日期") AS "年份",count("name") AS 筆數,AVG("進站人數") AS "進站人數"
+FROM "每日各站進出站人數" LEFT JOIN "台鐵車站資訊" ON "車站代碼" = "stationCode"
+WHERE "name" = '基隆'
+GROUP BY "name","年份";
+
+SELECT "name" AS 站名,date_part('year',"日期") AS "年份",count("name") AS 筆數,AVG("進站人數") AS "進站人數"
+FROM "每日各站進出站人數" LEFT JOIN "台鐵車站資訊" ON "車站代碼" = "stationCode"
+WHERE "name" = '基隆'
+GROUP BY "name","年份"
+ORDER BY "進站人數" DESC;
