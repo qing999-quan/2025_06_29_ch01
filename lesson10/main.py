@@ -1,4 +1,4 @@
-import datasource
+import lesson10.datasource as datasource
 import streamlit as st
 
 def main():

@@ -1,13 +1,20 @@
-
 {
-    "servers": {
-        "vscode_postgres": {
-        "command": "npx",
-        "args": [
+  "servers": {
+    "vscode_postgres": {
+      "command": "npx",
+      "args": [
         "-y",
         "@modelcontextprotocol/server-postgres",
         "postgresql://postgres:raspberry@host.docker.internal:5432/postgres"
       ]
-    }
     },
+    "render_postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://chillee_sunday_dd4h_user:   @dpg-d2bvnc6r433s73a6teug-a.singapore-postgres.render.com/chillee_sunday_dd4h?sslmode=require"
+      ]
+    }
+  },
 }
