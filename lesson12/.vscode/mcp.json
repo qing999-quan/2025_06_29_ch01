@@ -1,0 +1,13 @@
+{
+  "servers": {
+    
+    "render_postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://chillee_sunday_dd4h_user:gcjEkZUttlb7wJ2biUE0UQ097nSFRMKC@dpg-d2bvnc6r433s73a6teug-a.singapore-postgres.render.com/chillee_sunday_dd4h?sslmode=require"
+      ]
+    }
+  },
+}
