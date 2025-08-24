@@ -1,6 +1,7 @@
 import datetime
 import streamlit as st
 import datasource
+import pandas as pd
 
 st.sidebar.title("台鐵車站資訊")
 st.sidebar.header("2023年各站進出人數")
@@ -22,7 +23,7 @@ if stations is None:
     st.stop()
 
 
-common_stations = ['臺北','桃園','新竹','台中','臺南','高雄','其它']
+common_stations = ['臺北','桃園','新竹','臺中','臺南','高雄','其它']
 
 choice = st.sidebar.radio("快速選擇常用車站", common_stations)
 
@@ -62,7 +63,6 @@ if isinstance(selected_dates, tuple) and len(selected_dates) == 2:
     start_date, end_date = selected_dates
 else:
     start_date = end_date = selected_dates
-
 # 請使用datasource.get_station_data_by_date 函數取得資料,並顯示資料
 st.write("您選擇的車站:", station)
 st.write("日期範圍:", start_date, "至", end_date)
@@ -72,5 +72,16 @@ if data is None:
     st.error("無法取得車站資料，請稍後再試。")
 else:
     st.write("進出站人數資料:")
-    for row in data:
+    try:
+        # 將資料轉為 pandas DataFrame（支援 list[dict], list[tuple], dict）
+        if isinstance(data, dict):
+            df = pd.DataFrame([data])
+        else:
+            df = pd.DataFrame(data)
+        # 使用 Streamlit 的 DataFrame 顯示（互動式，可排序/篩選）
+        st.dataframe(df)
+    except Exception as e:
+        st.warning(f"無法轉換為 DataFrame，改以逐列顯示: {e}")
+        for row in data:
+            st.write(row)
         st.write(row)
