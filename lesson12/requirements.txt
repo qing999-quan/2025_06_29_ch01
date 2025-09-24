@@ -1,6 +1,6 @@
-psycopg2-binary
-python-dotenv
-streamlit
-matplotlib
-seaborn
-numpy
+psycopg2-binary #postgresql資料庫驅動程式
+python-dotenv #讀取.env檔的函式庫
+streamlit #網頁應用程式函式庫
+matplotlib #繪圖函式庫
+seaborn #繪圖函式庫
+numpy #常用的數學與矩陣運算函式庫
